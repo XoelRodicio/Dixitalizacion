@@ -1,4 +1,17 @@
-#Números pares e impares
-#Solicita al usuario una lista de números separados por espacios y muestra dos listas: una con los pares y otra con los impares.
+entrada = input("Escribe números separados por espacios: ")
 
-int(input("Escribe números separados por espacios: "))
+num = entrada.split()
+
+pares = []
+impares = []
+
+for elemento in num:
+    numero = int(elemento)
+    
+    if numero % 2 == 0:
+        pares.append(numero)
+    else:
+        impares.append(numero)
+
+print("Pares:", pares)
+print("Impares:", impares)
