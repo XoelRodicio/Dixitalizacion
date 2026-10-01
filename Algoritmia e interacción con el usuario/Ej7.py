@@ -6,35 +6,34 @@
 
 # Gestión de notas
 lista = {}
-todas_las_notas = []  # <--- Nueva lista para acumular TODAS las notas de la clase
+todasNotas = []
 
 while True:
-    nombres = input("Introduce el nombre del alumno (o 'fin' para terminar): ")
-    if nombres.lower() == "fin":
+    nombres = input("Introduce el nombre del alumno: ")
+    if nombres == "fin":
         break
 
-    calificaciones_alumno = [] 
+    calificaciones = [] 
     while True:
-        notas = input(f"Introduce una calificación para {nombres} (enter para terminar): ")
+        notas = input("Introduce una calificación: ")
         if notas == "":
             break 
 
-        nota_numerica = float(notas)
-        calificaciones_alumno.append(nota_numerica)
-        todas_las_notas.append(nota_numerica)  
+        nota = float(notas)
+        calificaciones.append(nota)
+        todasNotas.append(nota)  
         
-    lista[nombres] = calificaciones_alumno
+    lista[nombres] = calificaciones
 
-if todas_las_notas:
-    notaMax = max(todas_las_notas)
-    notaMin = min(todas_las_notas)
-    notaMedia = sum(todas_las_notas) / len(todas_las_notas)
+if todasNotas:
+    notaMax = max(todasNotas)
+    notaMin = min(todasNotas)
+    notaMedia = sum(todasNotas) / len(todasNotas)
 
-    print("\n--- RESULTADOS GLOBALES ---")
-    print(f"Nota media de la clase: {notaMedia:.2f}")
+    print(f"Nota media: {notaMedia:.2f}")
     print(f"Nota más alta: {notaMax}")
     print(f"Nota más baja: {notaMin}")
-    print("\nDiccionario completo de alumnos:", lista)
+    print(lista)
 else:
     print("No se introdujeron calificaciones.")
 
