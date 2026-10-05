@@ -5,10 +5,7 @@ class Cuenta:
         self.saldo = saldo_inicial
 
     def ingresar(self, cantidad):
-        if cantidad > 0:
-            self.saldo += cantidad
-        else:
-            print("Error: La cantidad a ingresar debe ser mayor que 0")
+        self.saldo += cantidad
 
     def retirar(self, cantidad):
         if cantidad > self.saldo:
@@ -25,11 +22,10 @@ class Cuenta:
 if __name__ == "__main__":
     cuenta = Cuenta(0)
 
-    cant_ingreso = float(input("Introduce la cantidad que desees ingresar: "))
-    cuenta.ingresar(cant_ingreso)
+    ingreso = int(input("Introduce la cantidad que desees ingresar: "))
+    cuenta.ingresar(ingreso)
 
-    cant_retiro = float(input("Introduce la cantidad que desees retirar: "))
-    cuenta.retirar(cant_retiro)
-    
+    retiro = int(input("Introduce la cantidad que desees retirar: "))
+    cuenta.retirar(retiro)
     
     cuenta.mostrar_saldo()
