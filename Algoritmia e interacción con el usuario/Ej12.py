@@ -16,14 +16,21 @@ while True:
     menu = input("Que deseas hacer: ")
 
     if menu == "1":
-        print("Hola")
+        print("AÑADIR CONTACTOS")
+        nombre = input("Introduce el nombre del contacto: ")
+        telefono = input("Introduce el telefono del contacto: ")
+        diccionario[nombre] = telefono
     elif menu == "2": 
         print("BUSCAR CONTACTOS POR NOMBRE")
+        encontrado = False
         buscar = input("Introduce el nombre del contacto: ")
         for clave, valor in diccionario.items():
-            if buscar == valor:
-                print("si")
-            else: print("no")
+            if buscar.lower() == clave.lower():
+                 print(f"Contacto encontrado: {clave} : {valor}")
+                 encontrado = True
+                 break
+        if not encontrado:
+            print("Este contacto no existe")
     elif menu == "3":
         print("Saliendo")
         break 
